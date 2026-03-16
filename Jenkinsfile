@@ -11,20 +11,20 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t devops-app .'
+                bat 'docker build -t devops-app .'
             }
         }
 
         stage('Stop Old Container') {
             steps {
-                sh 'docker stop devops-container || true'
-                sh 'docker rm devops-container || true'
+                bat 'docker stop devops-container'
+                bat 'docker rm devops-container'
             }
         }
 
         stage('Run New Container') {
             steps {
-                sh 'docker run -d -p 8081:80 --name devops-container devops-app'
+                bat 'docker run -d -p 8081:80 --name devops-container devops-app'
             }
         }
 
