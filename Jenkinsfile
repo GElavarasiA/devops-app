@@ -5,8 +5,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/yourusername/devops-app.git'
-            }
+                git 'https://github.com/GElavarasiA/devops-app.git'
         }
 
         stage('Build Docker Image') {
